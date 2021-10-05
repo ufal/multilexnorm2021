@@ -3,7 +3,7 @@ from data.dataset.abstract_dataset import AbstractDataset
 
 
 class InferenceDataset(AbstractDataset):
-    def __init__(self, args, inputs):
+    def __init__(self, inputs):
         self.inputs = inputs
 
         valid_indices = [[i for i, word in enumerate(sentence)] for sentence in inputs]

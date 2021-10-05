@@ -1,7 +1,6 @@
 from torch.utils.data import DataLoader
 from data.abstract_data import AbstractData, open_dataset
 from data.dataset.inference import InferenceDataset
-from data.dataset.iterative_inference import IterativeInferenceDataset
 
 
 class CollateFunctor:
@@ -25,15 +24,11 @@ class CollateFunctor:
 
 
 class InferenceData(AbstractData):
-    def __init__(self, args, is_iterative=False):
+    def __init__(self, args):
         super().__init__(args)
 
-        if is_iterative:
-            inputs, outputs = open_dataset(args.dataset.path, load_outputs=True)
-            self.dataset = IterativeInferenceDataset(args.dataset, inputs, outputs)
-        else:
-            inputs = open_dataset(args.dataset.path, load_outputs=False)
-            self.dataset = InferenceDataset(args.dataset, inputs)
+        inputs = open_dataset(args.dataset.path, load_outputs=False)
+        self.dataset = InferenceDataset(inputs)
 
         collate_fn = CollateFunctor(self.tokenizer)
 
