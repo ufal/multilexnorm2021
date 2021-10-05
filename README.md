@@ -1,9 +1,8 @@
-<h1 align="center"><b>ÚFAL at MultiLexNorm 2021I</b></h1>
-<h1 align="center"><b>Improving Multilingual Lexical Normalization by Fine-tuning ByT5</b></h1>
+<h1 align="center"><b>ÚFAL at MultiLexNorm 2021:<br>Improving Multilingual Lexical Normalization by Fine-tuning ByT5</b></h1>
 
 
 <p align="center">
-  <i><b>David Samuel & Milan Straka</b></i>
+  <b>David Samuel & Milan Straka</b>
 </p>
 
 <p align="center">
@@ -17,12 +16,12 @@
 
 <p align="center">
   <a href="TODO"><b>Paper (TODO)</b></a><br>
-  <a href="TODO"><b>HuggingFace models (TODO)</b></a><br>
-  <a href="TODO"><b>Interactive demo on Google Colab (TODO)</b></a>
+  <a href="TODO"><b>Interactive demo on Google Colab (TODO)</b></a><br>
+  <a href="TODO"><b>HuggingFace models (TODO)</b></a>
 </p>
 
 <p align="center">
-  <img src="img/overall.png" alt="Illustration of our model." width="340"/>  
+  <img src="img/overall.png" alt="Illustration of our model." width="720"/>  
 </p>
 
 _______
@@ -64,6 +63,10 @@ To train a model for English lexical normalization, simply run the following scr
 ```sh
 python3 train.py --config config/en.yaml
 ```
+
+_______
+
+<br>
 
 ## Cite us :pleading_face::point_right::point_left:
 
