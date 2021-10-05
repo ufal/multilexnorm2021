@@ -1,0 +1,7 @@
+transformers==4.11.0
+torch==1.7.1+cu101
+stanza==1.2
+pytorch_lightning==1.2.2
+requests==2.18.4
+cyrtranslit==1.0
+PyYAML==5.4.1
