@@ -1,0 +1,48 @@
+trainer:
+    n_epochs: 50
+    total_batch_size: 128
+    optimizer: adafactor
+    validate_each: 1
+
+    lr_decay:
+        type: inverse_sqrt
+        peak_learning_rate: 0.5e-3
+        finetune_learning_rate: 0.1e-3
+        warmup_steps: 4000
+
+    output_callback:
+        postprocessing: alnum  # none, alnum, aspell
+
+    delay_finetuning:
+        n_steps: 100000
+
+dataset:
+    mode: wiki  # baseline, wiki, augmented
+    language: sl
+    lowercase: true
+    batch_size: 32
+    threads: 4
+    p_corrupted: 0.0
+    tokenizer: google/byt5-small
+    encoder_max_length: 200
+    decoder_max_length: 32
+
+    noise_probs:
+        multiplier: 1.0
+        typo: 0.006
+        missing_apostrophe: 0.0001
+        missing_vowels: 0.012196
+        remove_accents: 0.1625962
+        replaced_aj: 0.22402
+        replaced_o: 0.094072
+        replaced_end_i: 0.189597
+        replaced_start_i: 0.109637
+        replaced_i: 0.098663
+        replaced_v_u: 0.00914
+        repeated_letters: 0.002214
+        prefix: 0.039475
+
+model:
+    pretrained_lm: google/byt5-small
+    weight_decay: 0.0
+    n_beams: 1

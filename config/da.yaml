@@ -1,0 +1,59 @@
+trainer:
+    n_epochs: 50
+    total_batch_size: 128
+    optimizer: adafactor
+    validate_each: 1
+
+    lr_decay:
+        type: inverse_sqrt
+        peak_learning_rate: 0.5e-3
+        finetune_learning_rate: 0.1e-3
+        warmup_steps: 4000
+
+    output_callback:
+        postprocessing: 
+            type: alnum  # none, alnum, aspell
+            bias: 1.0
+
+    delay_finetuning:
+        n_steps: 100000
+
+dataset:
+    mode: wiki  # baseline, wiki, augmented
+    language: da
+    lowercase: false
+    batch_size: 16
+    filter: none
+    threads: 4
+    p_corrupted: 0.0
+    tokenizer: google/byt5-small
+    encoder_max_length: 320
+    decoder_max_length: 32
+
+    noise_probs:
+        multiplier: 0.72
+
+        typo: 0.006
+        missing_vowels: 0.000268168
+        remove_repeated: 0.0020704
+
+        replaced_a_aa: 0.029885
+        replaced_e: 0.006168
+
+        repeated_letters: 0.0002
+        joined_words: 0.002555
+        split_words: 0.00095826
+        split_into_letters: 0.0002
+        prefix: 0.0034071
+
+        first_upper_to_lower: 0.0033953
+        upper_to_lower: 0.0026572
+        lower_to_first_upper: 0.008009
+        upper_to_first_upper: 0.0057208
+        lower_to_upper: 0.0026572
+        first_upper_to_upper: 0.0379746
+
+model:
+    pretrained_lm: google/byt5-small
+    weight_decay: 0.0
+    n_beams: 1

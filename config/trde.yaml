@@ -1,0 +1,69 @@
+trainer:
+    n_epochs: 50
+    total_batch_size: 128
+    optimizer: adafactor
+    validate_each: 1
+
+    lr_decay:
+        type: inverse_sqrt
+        peak_learning_rate: 0.5e-3
+        finetune_learning_rate: 0.1e-3
+        warmup_steps: 4000
+
+    output_callback:
+        postprocessing: 
+            type: none  # none, alnum, aspell
+            bias: 1.0
+
+    delay_finetuning:
+        n_steps: 100000
+
+dataset:
+    mode: wiki  # baseline, wiki, augmented
+    language: trde
+    second_language_portion: 0.5
+    lowercase: true
+    batch_size: 32
+    threads: 4
+    p_corrupted: 0.0
+    tokenizer: google/byt5-small
+    encoder_max_length: 160
+    decoder_max_length: 24
+
+    noise_probs:
+        multiplier: 0.75
+        typo: 0.01
+        missing_vowels: 0.003176976
+        remove_repeated: 0.01282051
+        repeated_letters: 0.007668058
+        remove_accents: 0.2268852
+
+        replaced_apostrophe: 0.10852713
+        replaced_e: 0.01344086
+        replaced_t: 0.0101626
+        replaced_eszett_ss: 0.072727272
+        replaced_eszett_s: 0.018181818
+        replaced_ss_s: 0.034090909
+        replaced_da_d: 0.007194244
+        replaced_a_ae: 0.005
+        replaced_u_ue: 0.005
+        replaced_o_oe: 0.005
+        replaced_en_n: 0.00668896
+        replaced_es: 0.25
+
+        joined_words: 0.02501764
+        split_words: 0.00807779
+        split_into_letters: 0.004
+        prefix: 0.014665516
+
+        first_upper_to_lower: 0.00707144
+        upper_to_lower: 0.00694952
+        lower_to_first_upper: 0.307660455
+        upper_to_first_upper: 0.0149068
+        lower_to_upper: 0.06194690
+        first_upper_to_upper: 0.05504587
+
+model:
+    pretrained_lm: google/byt5-small
+    weight_decay: 0.0
+    n_beams: 2
