@@ -8,10 +8,10 @@ trainer:
 
 dataset:
     language: TO-BE-SUPPLIED
-    batch_size: 128
-    threads: 0
+    batch_size: 32
+    threads: 1
     tokenizer: TO-BE-SUPPLIED
 
 model:
     pretrained_lm: TO-BE-SUPPLIED
-    n_beams: 1
+    n_beams: 16
