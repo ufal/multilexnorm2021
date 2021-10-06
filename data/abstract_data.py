@@ -16,7 +16,7 @@ def open_dataset(path, load_outputs=True):
 
 class AbstractData:
     def __init__(self, args):
-        tokenizer_factory = T5TokenizerFast if "byt5" not in args.dataset.tokenizer else ByT5Tokenizer
+        tokenizer_factory = T5TokenizerFast if "mt5" in args.dataset.tokenizer else ByT5Tokenizer
         self.tokenizer = tokenizer_factory.from_pretrained(args.dataset.tokenizer)
 
         self.batch_size = args.dataset.batch_size
