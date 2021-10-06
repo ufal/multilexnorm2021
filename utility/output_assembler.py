@@ -1,6 +1,6 @@
 import os
 import os.path
-from utility.postprocessor import NonePostprocessor, AlnumPostprocessor, AspellPostprocessor
+from utility.postprocessor import NonePostprocessor, AlnumPostprocessor
 
 
 class OutputAssembler:
