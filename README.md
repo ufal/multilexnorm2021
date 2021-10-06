@@ -1,4 +1,4 @@
-<h1 align="center"><b>ÚFAL at MultiLexNorm 2021:<br>Improving Multilingual Lexical Normalization by Fine-tuning ByT5</b></h1>
+<h2 align="center"><b><h3>ÚFAL at MultiLexNorm 2021:</h3>Improving Multilingual Lexical Normalization by Fine-tuning ByT5</b></h2><br>
 
 
 <p align="center">
