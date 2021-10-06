@@ -1,0 +1,17 @@
+postprocessing: 
+    type: alnum  # none, alnum, aspell
+    bias: 1.0
+
+trainer:
+    n_gpus: 1
+    total_batch_size: 32
+
+dataset:
+    language: TO-BE-SUPPLIED
+    batch_size: 128
+    threads: 0
+    tokenizer: TO-BE-SUPPLIED
+
+model:
+    pretrained_lm: TO-BE-SUPPLIED
+    n_beams: 1

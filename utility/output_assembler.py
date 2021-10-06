@@ -23,13 +23,9 @@ class OutputAssembler:
 
             self.cache.setdefault(sent_id, {})[word_id] = pairs
 
-    def flush(self, reorder_f=None):
+    def flush(self):
         predictions = self.assemble(self.cache)
-        if reorder_f:
-            predictions = reorder_f(predictions)
-            inputs = self.dataset.original_inputs
-        else:
-            inputs = self.dataset.inputs
+        inputs = self.dataset.inputs
 
         raw_path = f"{self.directory}/raw_outputs.txt"
         postprocessed_path = f"{self.directory}/outputs.txt"
