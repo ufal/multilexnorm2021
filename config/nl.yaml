@@ -11,7 +11,7 @@ trainer:
         warmup_steps: 4000
 
     output_callback:
-        postprocessing: alnum  # none, alnum, aspell
+        postprocessing: alnum  # none, alnum
 
     delay_finetuning:
         n_steps: 100000

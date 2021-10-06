@@ -12,7 +12,7 @@ trainer:
 
     output_callback:
         postprocessing: 
-            type: alnum  # none, alnum, aspell
+            type: alnum  # none, alnum
             bias: 1.0
 
     delay_finetuning:

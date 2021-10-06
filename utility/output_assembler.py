@@ -10,7 +10,6 @@ class OutputAssembler:
         self.postprocessing = {
             "none": NonePostprocessor,
             "alnum": AlnumPostprocessor,
-            "aspell": AspellPostprocessor
         }[args.postprocessing.type](args.postprocessing.bias)
 
         self.cache = {}
