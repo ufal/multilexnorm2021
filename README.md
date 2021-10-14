@@ -66,8 +66,14 @@ _______
 
 <br>
 
-## Cite us :pleading_face::point_right::point_left:
-
-```
-TODO
+## Please cite the following publication
+```bibtex
+@inproceedings{wnut-ufal,
+  title= "{ÚFAL} at {MultiLexNorm} 2021: Improving Multilingual Lexical Normalization by Fine-tuning {ByT5}",
+  author = "Samuel, David and Straka, Milan",
+  booktitle = "Proceedings of the 7th Workshop on Noisy User-generated Text (W-NUT 2021)",
+  year = "2021",
+  publisher = "Association for Computational Linguistics",
+  address = "Punta Cana, Dominican Republic"
+}
 ```
