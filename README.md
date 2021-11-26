@@ -15,9 +15,9 @@
 <br>
 
 <p align="center">
-  <a href="TODO"><b>Paper (TODO)</b></a><br>
+  <a href="https://aclanthology.org/2021.wnut-1.54/"><b>Paper</b></a><br>
   <a href="https://colab.research.google.com/drive/1rxpI8IlKk-D2crFqi2hdzbTBIezqgsCg?usp=sharing"><b>Interactive demo on Google Colab</b></a><br>
-  <a href="TODO"><b>HuggingFace models (TODO)</b></a>
+  <a href="https://huggingface.co/ufal"><b>HuggingFace models</b></a>
 </p>
 
 <p align="center">
