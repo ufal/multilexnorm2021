@@ -7,8 +7,8 @@ from utility.twokenize import tokenizeRawTweetText
 
 
 LANGUAGE = sys.argv[1]
-INPUT_PATH = f"/lnet/work/people/samuel/wiki/{LANGUAGE}_wiki.txt"
-OUTPUT_PATH = f"/lnet/work/people/samuel/wiki/{LANGUAGE}_processed_wiki.txt"
+INPUT_PATH = f"data/wiki/{LANGUAGE}_wiki.txt"
+OUTPUT_PATH = f"data/wiki/{LANGUAGE}_processed_wiki.txt"
 print(LANGUAGE, flush=True)
 
 try:
