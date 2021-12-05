@@ -49,7 +49,7 @@ pip3 install -r requirements.txt
 
 ### :feet: &nbsp; Initialize
 
-Run the inialization script to download the official MultiLexNorm data together with a dump of English Wikipedia. We recommend downloading [Wikipidia dumps](https://dumps.wikimedia.org/backup-index.html) to get clean multi-lingual data, but other data sources should also work.
+Run the inialization script to download the official MultiLexNorm data together with a dump of English Wikipedia. To replicate our results, you can download the preprocessed dumps for all languages [here](https://github.com/ufal/multilexnorm2021/releases/download/v1.0.0/wiki.zip). To use more fresh sources, we recommend downloading [Wikipidia dumps](https://dumps.wikimedia.org/backup-index.html) to get the clean multi-lingual data.
 
 ```sh
 ./initialize.sh
