@@ -10,17 +10,17 @@ class WikiDataset(AbstractDataset):
         super().__init__(args, inputs, outputs)
 
         path = {
-            "en": "/lnet/work/people/samuel/wiki/en_processed_wiki.txt",
-            "it": "/lnet/work/people/samuel/wiki/it_processed_wiki.txt",
-            "sl": "/lnet/work/people/samuel/wiki/sl_processed_wiki.txt",
-            "hr": "/lnet/work/people/samuel/wiki/hr_processed_wiki.txt",
-            "da": "/lnet/work/people/samuel/wiki/da_processed_wiki.txt",
-            "nl": "/lnet/work/people/samuel/wiki/nl_processed_wiki.txt",
-            "sr": "/lnet/work/people/samuel/wiki/sr_romanized_wiki.txt",
-            "id": "/lnet/work/people/samuel/wiki/id_processed_wiki.txt",
-            "de": "/lnet/work/people/samuel/wiki/de_noneszett_wiki.txt",
-            "tr": "/lnet/work/people/samuel/wiki/tr_processed_wiki.txt",
-            "es": "/lnet/work/people/samuel/wiki/es_processed_wiki.txt",
+            "en": "data/wiki/en_processed_wiki.txt",
+            "it": "data/wiki/it_processed_wiki.txt",
+            "sl": "data/wiki/sl_processed_wiki.txt",
+            "hr": "data/wiki/hr_processed_wiki.txt",
+            "da": "data/wiki/da_processed_wiki.txt",
+            "nl": "data/wiki/nl_processed_wiki.txt",
+            "sr": "data/wiki/sr_romanized_wiki.txt",
+            "id": "data/wiki/id_processed_wiki.txt",
+            "de": "data/wiki/de_noneszett_wiki.txt",
+            "tr": "data/wiki/tr_processed_wiki.txt",
+            "es": "data/wiki/es_processed_wiki.txt",
         }[language]
 
         self.max_length = args.encoder_max_length
@@ -30,15 +30,12 @@ class WikiDataset(AbstractDataset):
             self.sentences = [s for s in self.sentences if len(' '.join(s)) >= 16 and len(' '.join(s)) <= self.max_length]
         self.augmenter = Augmenter(args, inputs, outputs, lowercase=args.lowercase)
 
-#        self.n_total, self.n_diff = 0, 0
         print("\n\nDATASET TEST OUTPUT:\n")
         for i in range(100):
             raw, out, _, _ = self.__getitem__(i)
             if i < 100:
                 print(raw)
                 print(out)
-#        print(self.n_diff / self.n_total * 100.0, flush=True)
-#        exit()
 
     def __getitem__(self, sentence_index):
         random_generator = RandomGenerator(n_cached=32)
@@ -59,8 +56,6 @@ class WikiDataset(AbstractDataset):
             sentence = self.sentences[sentence_index]
 
         corrupted_sentence, gold_sentence = self.augmenter.augment(sentence, random_generator)
-#        self.n_total += len(corrupted_sentence)
-#        self.n_diff += sum([a != b for a, b in zip(corrupted_sentence, gold_sentence)])
         valid_indices = [i for i, word in enumerate(corrupted_sentence) if self.filter(word)]
         if len(valid_indices) == 0:
             word_index = 0
