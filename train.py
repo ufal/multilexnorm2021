@@ -22,7 +22,7 @@ if __name__ == "__main__":
     pl.seed_everything(args.seed)
 
     timestamp = f"{datetime.datetime.today():%m-%d-%y_%H-%M-%S}"
-    directory = f"/lnet/work/people/samuel/outputs/{args.dataset.language}_{args.model.pretrained_lm.split('/')[-1]}_{timestamp}"
+    directory = f"outputs/{args.dataset.language}_{args.model.pretrained_lm.split('/')[-1]}_{timestamp}"
     predictions_directory = f"{directory}/test_predictions"
     os.mkdir(directory)
     os.mkdir(predictions_directory)
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     # INFERENCE ON TEST
 
     def inference(args, model, input_data, output_dir):
-        args.dataset.path = f"/home/samuel/personal_work_ms/w-nut-normalization/data/multilexnorm/test-eval/test/{input_data}"
+        args.dataset.path = f"data/multilexnorm/test-eval/test/{input_data}"
         if not os.path.isdir(output_dir):
             os.mkdir(output_dir)
 
